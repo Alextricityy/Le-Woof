@@ -6,6 +6,8 @@ class CreateDogs < ActiveRecord::Migration[5.2]
       t.string :image_url
       t.string :size
       t.string :breed
+      t.integer :gender
+      t.integer :price
       t.references :user, foreign_key: true
 
       t.timestamps

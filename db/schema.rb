@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2018_05_21_131806) do
     t.string "image_url"
     t.string "size"
     t.string "breed"
+    t.integer "gender"
+    t.integer "price"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

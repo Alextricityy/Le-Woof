@@ -1,7 +1,7 @@
 class DogsController < ApplicationController
 
   def index
-
+    @dogs = Dog.all
   end
 
   def new
@@ -33,7 +33,7 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, )
+    params.require(:dog).permit(:name, :description, :breed, :gender, :image_url, :size, :price)
   end
 
 end
