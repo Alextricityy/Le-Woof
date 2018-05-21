@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  before_action :set_dog, except: :new
+  before_action :set_dog, except: [:new, :index]
 
   def index
     @dogs = Dog.all
@@ -36,9 +36,9 @@ class DogsController < ApplicationController
   end
 
   def show
-    @dog = Dog.find(params[:id])
 
   end
+
   private
   def set_dog
      @dog = Dog.find(params[:id])
