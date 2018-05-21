@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_110201) do
 
   create_table "dogs", force: :cascade do |t|
     t.string "name"
-    t.text "desciption"
+    t.text "description"
     t.string "image_url"
     t.string "size"
     t.string "breed"
