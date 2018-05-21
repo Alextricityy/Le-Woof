@@ -1,3 +1,21 @@
-<%= simple_form_for @dog %>
-
+<div class="container">
+  <!-- banner -->
+<div class="small-banner" style="background-image: linear-gradient(-225deg, rgba(0,50,50,0.6) 0%, rgba(0,36,61,0.6) 50%),  url(<%= image_path "banner.jpg" %>);">
+  <h1>New Dog</h1>
+</div>
+<!-- simple form -->
+<hr>
+<%= simple_form_for @dog do |f|%>
+<div class="col-xs-4 offset-md-4">
+<%= f.input :name %>
+<%= f.input :image_url %>
+<%#= f.input :photo_cache, as: :hidden %>
+<%= f.input :description %>
+<%= f.input :price %>
+<%= f.input :breed %>
+<%= f.input :gender %>
+<%= f.submit %>
+</div>
+<hr>
 <% end %>
+</div>
