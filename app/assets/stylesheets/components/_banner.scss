@@ -3,20 +3,13 @@
   background-size: cover !important;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  height: 60vh;
   width: 100%;
   color: white;
   text-align: center;
-  display:flex;
-  justify-content:space-around;
-  flex-direction:column;
-  align-items:center;
-  h1{
-    font-size:50px !important;
-  }
-  .btn-primary{
-    size:300px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .small-banner{
@@ -34,6 +27,7 @@
   }
   .btn-primary{
     size:300px;
+
   }
 }
 .infront-banner{
@@ -44,4 +38,7 @@
   background-position: center;
   position:center;
   margin-top:0;
+}
+.banner-text {
+  margin-bottom: 30px;
 }
