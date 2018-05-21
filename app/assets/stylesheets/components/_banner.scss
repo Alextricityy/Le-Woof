@@ -1,0 +1,47 @@
+/* app/assets/stylesheets/components/_banner.scss */
+.home-banner {
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  color: white;
+  text-align: center;
+  display:flex;
+  justify-content:space-around;
+  flex-direction:column;
+  align-items:center;
+  h1{
+    font-size:50px !important;
+  }
+  .btn-primary{
+    size:300px;
+  }
+}
+
+.small-banner{
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 400px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding-top: 200px;
+  margin-top: 50px;
+  h1{
+    font-size:50px !important;
+  }
+  .btn-primary{
+    size:300px;
+  }
+}
+.infront-banner{
+  width:600px;
+  height:400px;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  position:center;
+  margin-top:0;
+}
