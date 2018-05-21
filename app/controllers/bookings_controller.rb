@@ -29,11 +29,11 @@ class BookingsController < ApplicationController
   end
   private
   def set_dog
-    @dog = Dog.find(params[:id])
+    @booking = Booking.find(params[:id])
   end
 
   def dog_params
-    params.require(:dog).permit(:name, )
+    params.require(:booking).permit(:name, )
   end
 
 end
