@@ -25,7 +25,7 @@
 <div class="right-side col-xs-4 dog-show">
   <%= simple_form_for new_booking_path do |f| %>
   <h3>Price $<%= @dog.price %></h3>
-  <%= f.input :date, input_html: {data-provide "datepicker"} %>
+  <%= f.input :date, input_html: { class: "datepicker"} %>
   <%= f.input :details %>
   <%= f.button :submit, "Book Now"  %>
 <% end %>
