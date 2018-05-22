@@ -3,6 +3,8 @@
     <div class="col-xs-8 col-xs-offset-2">
       <h1> <%= @user.first_name.capitalize%> <%=@user.last_name[0].upcase%>  </h1>
       <div><%= cl_image_tag @user.photo, height: 150, width: 200, crop: :fill%></div>
+      <br>
+      <p> <%= @user.bio%></p>
 
     </div>
 
