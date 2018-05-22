@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  before_action :set_dog, except: [:new, :index]
+  before_action :set_dog, except: [:new, :index, :create]
 
   def index
     @dogs = Dog.all
@@ -10,9 +10,10 @@ class DogsController < ApplicationController
   end
 
   def create
-    @dog = Dog.create(dog_params)
+    @dog = Dog.new(dog_params)
+    @dog.user = current_user
     if @dog.save
-      redirect_to dogs_path
+      redirect_to dog_path(@dog)
     else
       render "new"
     end
