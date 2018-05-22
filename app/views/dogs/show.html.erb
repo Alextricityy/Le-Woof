@@ -2,25 +2,33 @@
   <div class="small-banner" style="background-image: linear-gradient(-225deg, rgba(0,50,50,0.6) 0%, rgba(0,36,61,0.6) 50%),  url(<%= image_path "banner.jpg" %>);"></div>
   <!-- change the banner -->
 
-    <div class="dog-show">
-  <h1><%= @dog.name.capitalize %></h1>
-  <h3><%= @dog.breed.capitalize %></h3>
-  <img src="" alt="" class="avatar">
-  <p><%= @dog.description %></p>
-  <p><%= @dog.price %></p>
-  <p><%= @dog.size %></p>
-</div>
+  <div class="dog-show">
+    <h1><%= @dog.name.capitalize %></h1>
+    <h3><%= @dog.breed.capitalize %></h3>
+    <img src="" alt="" class="avatar">
+    <p><%= @dog.description %></p>
+    <p><%= @dog.price %></p>
+    <p><%= @dog.size %></p>
+  </div>
 
-<!-- code bookings here -->
-<div class="right-side">
-  <%= simple_form_for @booking do |f| %>
-  <%= f.input  %>
-  <%= f.input  %>
-  <%= f.input  %>
-  <%= f.input  %>
-  <%= f.input  %>
-  <%= f.submit  %>
+  <% if policy(@dog).edit? %>
+  <%= link_to 'Edit', edit_dog_path(@dog) %> |
+  <% end %>
 
-</div>
+  <% if policy(@dog).destroy? %>
+  <%= link_to 'Destroy', @restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
+  <!-- code bookings here -->
+  <div class="right-side">
+    <%= simple_form_for @booking do |f| %>
+    <%= f.input  %>
+    <%= f.input  %>
+    <%= f.input  %>
+    <%= f.input  %>
+    <%= f.input  %>
+    <%= f.submit  %>
+
+  </div>
 
 </div>

@@ -7,6 +7,6 @@ class Dog < ApplicationRecord
   validates :description, presence:true
   validates :image_url, presence:true
   validates :size, presence:true, inclusion: { in: %w(small medium large)}
-  validates :gender, presence:true, inclusion: { in: %w(0 1)}
+  validates :gender, presence:true, inclusion: { in: %w(male female)}
   validates :price, presence:true
 end
