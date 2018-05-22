@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  before_action :set_dog, except: [:new, :index]
+  before_action :set_dog, except: [:new, :index, :create]
 
   def index
     @dogs = policy_scope(Dog).order(created_at: :desc)
@@ -11,10 +11,12 @@ class DogsController < ApplicationController
   end
 
   def create
-    @dog = Dog.create(dog_params)
-    authorize @dog
+
+    @dog = Dog.new(dog_params)
+        authorize @dog
+    @dog.user = current_user
     if @dog.save
-      redirect_to dogs_path
+      redirect_to dog_path(@dog)
     else
       render "new"
     end
@@ -49,7 +51,7 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :description, :breed, :gender, :image_url, :size, :price)
+    params.require(:dog).permit(:name, :description, :breed, :gender, :photo, :size, :price)
   end
 
 end
