@@ -17,11 +17,11 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
-gem 'simple_form'
 gem 'pundit'
 gem 'figaro'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

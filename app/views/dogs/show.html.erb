@@ -3,7 +3,7 @@
   <!-- change the banner -->
 
 
-    <div class="dog-show">
+    <div class="dog-show col-md-8 col-sm-6 col-xs-4">
   <div><%= cl_image_tag @dog.photo, height: 300, width: 400, crop: :fill%></div>
   <h1><%= @dog.name.capitalize %></h1>
   <h3><%= @dog.breed.capitalize %></h3>
@@ -11,7 +11,6 @@
   <p><%= @dog.description %></p>
   <p><%= @dog.price %></p>
   <p><%= @dog.size %></p>
-</div>
  <% if policy(@dog).edit? %>
   <%= link_to 'Edit', edit_dog_path(@dog) %> |
   <% end %>
@@ -19,17 +18,18 @@
   <% if policy(@dog).destroy? %>
   <%= link_to 'Destroy', @restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
+</div>
+
 
 <!-- code bookings here -->
-<!-- <div class="right-side"> -->
-  <%#= simple_form_for @booking do |f| %>
-  <%#= f.input  %>
-  <%#= f.input  %>
-  <%#= f.input  %>
-  <%#= f.input  %>
-  <%#= f.input  %>
-  <%#= f.submit  %>
-
-<!-- </div> -->
+<div class="right-side col-xs-4 dog-show">
+  <%= simple_form_for [@dog, @booking] do |f| %>
+  <h3>Price $<%= @dog.price %></h3>
+  <%= f.input :date, as: :string, input_html: { class: "datepicker"} %>
+  <%= f.input :details %>
+  <%#= f.input :price, value: @dog.price, as: :hidden %>
+  <%= f.button :submit, "Book Now"  %>
+<% end %>
+</div>
 
 </div>

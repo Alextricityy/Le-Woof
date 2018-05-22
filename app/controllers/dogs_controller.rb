@@ -42,6 +42,7 @@ class DogsController < ApplicationController
   end
 
   def show
+  @booking = Booking.new
   authorize @dog
   end
 
