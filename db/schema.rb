@@ -16,14 +16,15 @@ ActiveRecord::Schema.define(version: 2018_05_21_161257) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.string "new"
-    t.string "create"
-    t.string "edit"
-    t.string "update"
-    t.string "destroy"
-    t.string "show"
+    t.bigint "dog_id"
+    t.bigint "user_id"
+    t.string "time"
+    t.integer "price"
+    t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["dog_id"], name: "index_bookings_on_dog_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "dogs", force: :cascade do |t|
@@ -76,6 +77,8 @@ ActiveRecord::Schema.define(version: 2018_05_21_161257) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "dogs"
+  add_foreign_key "bookings", "users"
   add_foreign_key "dogs", "users"
   add_foreign_key "reviews", "dogs"
   add_foreign_key "reviews", "users"
