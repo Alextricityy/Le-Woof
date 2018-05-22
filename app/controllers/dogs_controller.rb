@@ -42,6 +42,10 @@ class DogsController < ApplicationController
   end
 
   def show
+  @booking = Booking.new
+
+  @already_booked_start = @dog.bookings.map { |booking| booking.start_time.strftime("%Y-%m-%e ") }
+  @already_booked_end = @dog.bookings.map { |booking| booking.end_time.strftime("%Y-%m-%e ") }
   authorize @dog
   end
 

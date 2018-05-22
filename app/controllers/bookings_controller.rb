@@ -1,15 +1,18 @@
 class BookingsController < ApplicationController
-
-  def index
-
-  end
-
-  def new
-
-  end
+  before_action :set_dog, only: :create
+  before_action :set_booking, only: :show
 
   def create
-
+    @booking = Booking.new(booking_params)
+    authorize @booking
+    @booking.dog = @dog
+    @booking.user = current_user
+    @booking.price = @dog.price
+    if @booking.save
+      redirect_to dog_booking_path(@dog, @booking)
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -25,15 +28,20 @@ class BookingsController < ApplicationController
   end
 
   def show
-
+    authorize @booking
   end
+
   private
   def set_booking
     @booking = Booking.find(params[:id])
   end
 
+  def set_dog
+    @dog = Dog.find(params[:dog_id])
+  end
+
   def booking_params
-    params.require(:booking).permit(:name, )
+    params.require(:booking).permit(:details, :start_time, :end_time)
   end
 
 end
