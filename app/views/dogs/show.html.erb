@@ -3,6 +3,7 @@
   <!-- change the banner -->
 
     <div class="dog-show">
+  <div><%= cl_image_tag @dog.photo, height: 300, width: 400, crop: :fill%></div>
   <h1><%= @dog.name.capitalize %></h1>
   <h3><%= @dog.breed.capitalize %></h3>
   <img src="" alt="" class="avatar">
