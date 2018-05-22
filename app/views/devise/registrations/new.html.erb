@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container forms">
   <div class="row">
     <div class="col-xs-4 col-xs-offset-4">
 
@@ -10,20 +10,9 @@
 
         <%= f.input :first_name, required: true%>
         <%= f.input :last_name, required: true%>
-        <%= f.input :postcode, required: true%>
         <%= f.input :email, required: true, autofocus: true %>
         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
         <%= f.input :password_confirmation, required: true %>
-      </div>
-      <div class="form-inputs form-inline">
-        <%= f.input :borrower, as: :boolean, class: "checkbox" %>
-
-        <%= f.input :owner, as: :boolean, class: "checkbox" %>
-      </div>
-      <br>
-
-      <div class="form-inputs">
-        <%= f.input :bio, required: true%>
       </div>
 
       <div class="form-actions">
