@@ -14,19 +14,19 @@
           </ul>
         </div>
       </div>
-      <div class="navbar-wagon-item navbar-wagon-link">
-        <%= link_to 'Logout', destroy_user_session_path %>
-      </div>
-      <div class="navbar-wagon-item navbar-wagon-link">
-        <%= link_to 'I am an owner', new_dog_path %>
-      </div>
-    </div>
+     </div>
 
 
       <div class="navbar-wagon-right">
-        <%= form_tag do %>
-          <%= text_field_tag :term %>
-            <%= submit_tag 'Search' %>
+        <div class="navbar-wagon-item navbar-wagon-link">
+            <%= link_to 'Logout', destroy_user_session_path %>
+          </div>
+          <div class="navbar-wagon-item navbar-wagon-link">
+            <%= link_to 'I am an owner', new_dog_path %>
+          </div>
+            <%= form_tag do %>
+              <%= text_field_tag :term %>
+              <%= submit_tag 'Search' %>
           <% end %>
       </div>
 
