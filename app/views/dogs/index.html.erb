@@ -17,22 +17,26 @@
     <% @dogs.each do |dog| %>
       <div class="col-xs-12 col-md-4 col-sm-8">
         <div class="card">
-          <%= link_to "", dog_path(dog), class:"card-link" %>
-          <div class="card-body" style="width: 300px; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_tag dog.photo %>');">
-            <h5 class="card-title"><%= link_to dog.name , dog_path(dog) %></h5>
-            <ul class="card-description">
-              <%= dog.description %>
-            </ul>
-            <div class="card-footer"><%= Date.today %>
-              <div class="card-buttons">
-                <a href="#"><i class="fa fa-star"></i></a>
-                <a href="#"><i class="fa fa-heart"></i></a>
-                <a href="#"><i class="fa fa-share"></i></a>
-                <%= link_to dog_path(dog), method: :delete do  %>
-                  <i class="fas fa-trash"></i>
-                <% end %>
-              </div>
+          <%= link_to "", dog_path(dog), class: "card-link" %>
+          <% if dog.photo %>
+            <% photo_url = cl_image_path dog.photo %>
+          <% else %>
+            <% photo_url = "url('https://goo.gl/images/GPguPA')" %>
+          <% end %>
+          <div class="card-photo" style="background-image: url('<%= photo_url %>');">
+            <div >
+              <p class="card-icon">icons</p>
             </div>
+          </div>
+          <div class="card-name">
+            <h3><%= dog.name.capitalize %></h3>
+            <p> Price p/h: $<%= dog.price %></p>
+          </div>
+          <div class="card-info">
+            <p><%=h truncate(dog.description, length: 80) %></p>
+          </div>
+          <div class="card-date">
+            <p>Added on: <%= Date.today %></p>
           </div>
         </div>
       </div>
