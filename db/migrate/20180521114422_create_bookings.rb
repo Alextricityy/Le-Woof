@@ -1,12 +1,11 @@
 class CreateBookings < ActiveRecord::Migration[5.2]
   def change
     create_table :bookings do |t|
-      t.string :new
-      t.string :create
-      t.string :edit
-      t.string :update
-      t.string :destroy
-      t.string :show
+      t.references :dog, foreign_key: true
+      t.references :user, foreign_key: true
+      t.string :time
+      t.integer :price
+      t.text :details
 
       t.timestamps
     end

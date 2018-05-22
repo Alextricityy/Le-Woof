@@ -1,19 +1,17 @@
-<div class="home-banner" style="background-image:   url(<%= image_path "banner.jpg" %>);">
-  <div class="">
+<div class="home-banner" style="background-image: url(<%= image_path "banner.jpg" %>);">
+  <div>
     <h1 class="banner-text">
       Connecting dog owners with local dog lovers
     </h1>
-    <a href="#dogs">
-      <button class="button">Search</button>
+    <a href="#dogs" class="button">
+      Hello
     </a>
   </div>
 </div>
-
-<a name="dogs"></a>
+<div id="dogs"></div>
 <div class="row">
   <% @dogs.each do |dog| %>
   <div class="col-xs-12 col-md-4 col-sm-8">
-
     <div class="card">
       <%= link_to "", dog_path(dog), class:"card-link" %>
       <!-- <div class="card-body" style="width: 300px; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%#= cl_image_path dog.photo %>');"> -->
