@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_22_102451) do
+
+ActiveRecord::Schema.define(version: 2018_05_22_125347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +19,11 @@ ActiveRecord::Schema.define(version: 2018_05_22_102451) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "dog_id"
     t.bigint "user_id"
-    t.string "time"
     t.integer "price"
     t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date"
     t.index ["dog_id"], name: "index_bookings_on_dog_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -30,15 +31,14 @@ ActiveRecord::Schema.define(version: 2018_05_22_102451) do
   create_table "dogs", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "image_url"
     t.string "size"
     t.string "breed"
-    t.integer "gender"
+    t.string "gender"
     t.integer "price"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "address"
+    t.string "photo"
     t.index ["user_id"], name: "index_dogs_on_user_id"
   end
 

@@ -1,39 +1,46 @@
-<div class="home-banner" style="background-image: linear-gradient(-225deg, rgba(0,50,50,0.6) 0%, rgba(0,36,61,0.6) 50%),  url(<%= image_path "banner.jpg" %>);">
-  <div class="infront-banner" style="background-image: url(<%= image_path "logo.jpg" %>)">
-    <div><h3>
-      <span class="margin-bottom" id="banner-typed-text"></span>
-    </h3>
-    <a href="#dogs"> <button class="btn-lg btn-primary margin-top">View Our Dogs</button></a>
+<!-- Below is the home banner -->
+<div class="home-banner" style="background-image: url(<%= image_path "banner.jpg" %>);">
+  <div>
+    <h1 class="banner-text">
+      Connecting dog owners with local dog lovers
+    </h1>
+    <a href="#dogs" class="button">
+      Hello
+    </a>
   </div>
 </div>
-</div>
-<hr>
+<!-- Above is the home banner -->
 
-  <a name="dogs"></a>
+<!-- Below is the dogs cards container -->
+<div class="container">
   <div class="row">
     <% @dogs.each do |dog| %>
-    <div class="col-xs-12 col-md-4 col-sm-8">
-
-      <div class="card">
-        <%= link_to "", dog_path(dog), class:"card-link" %>
-        <!-- <div class="card-body" style="width: 300px; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%#= cl_image_path dog.image_url %>');"> -->
-          <h5 class="card-title"><%= link_to dog.name , dog_path(dog) %></h5>
-          <ul class="card-description">
-            <%= dog.description %>
-          </ul>
-          <div class="card-footer"><%= Date.today %>
-            <div class="card-buttons">
-              <a href="#"><i class="fa fa-star"></i></a>
-              <a href="#"><i class="fa fa-heart"></i></a>
-              <a href="#"><i class="fa fa-share"></i></a>
-              <%= link_to dog_path(dog), method: :delete do  %>
-                <i class="fas fa-trash"></i>
-              <% end %>
+      <div class="col-xs-12 col-md-4 col-sm-8">
+        <div class="card">
+          <%= link_to "", dog_path(dog), class:"card-link" %>
+          <div class="card-body" style="width: 300px; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= cl_image_tag dog.photo %>');">
+            <h5 class="card-title"><%= link_to dog.name , dog_path(dog) %></h5>
+            <ul class="card-description">
+              <%= dog.description %>
+            </ul>
+            <div class="card-footer"><%= Date.today %>
+              <div class="card-buttons">
+                <a href="#"><i class="fa fa-star"></i></a>
+                <a href="#"><i class="fa fa-heart"></i></a>
+                <a href="#"><i class="fa fa-share"></i></a>
+                <%= link_to dog_path(dog), method: :delete do  %>
+                  <i class="fas fa-trash"></i>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
+<!-- Above is the dogs cards container -->
+
+
+
+
