@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :dogs do
     resources :reviews
   end
+  resources :bookings, except: :index
 end
