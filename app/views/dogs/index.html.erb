@@ -1,9 +1,10 @@
 <!-- Below is the home banner -->
-<div class="home-banner" style="background-image: url(<%= image_path "banner.jpg" %>);">
+<div class="home-banner" style="background-image :linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "banner.jpg" %>);">
   <div>
-    <h1 class="banner-text">
-      Connecting dog owners with local dog lovers
+    <h1 class="banner-h1">
+      Le Woof
     </h1>
+    <p class="banner-text">Connecting dog owners with local dog lovers</p>
     <a href="#dogs" class="button">
       Hello
     </a>
@@ -33,7 +34,7 @@
             <p> Price p/h: $<%= dog.price %></p>
           </div>
           <div class="card-info">
-            <p><%=h truncate(dog.description, length: 80) %></p>
+            <p><%=h truncate(dog.description, length: 200) %></p>
           </div>
           <div class="card-date">
             <p>Added on: <%= Date.today %></p>
