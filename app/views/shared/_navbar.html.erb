@@ -1,76 +1,89 @@
 <% if user_signed_in? %>
-    <div class="navbar-wagon">
-      <div class="navbar-wagon-left">
-        <%= link_to root_path do %>
-          <%= image_tag "logo.jpg", alt: "logo", class: "navbar-brand"%>
-        <% end %>
-        <div class="navbar-wagon-item hidden-md hidden-lg">
-        <div class="dropdown">
-          <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-            <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to 'Search' %></li>
-          </ul>
-        </div>
-      </div>
-     </div>
 
-
-      <div class="navbar-wagon-right">
-        <div class="navbar-wagon-item navbar-wagon-link">
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-          </div>
-          <div class="navbar-wagon-item navbar-wagon-link">
-            <%= link_to 'I am an owner', new_dog_path %>
-          </div>
-            <%= form_tag do %>
-              <%= text_field_tag :term %>
-              <%= submit_tag 'Search' %>
-          <% end %>
-      </div>
-
-  <!-- Dropdown appearing on mobile only -->
-
-  </div>
-
-<% else %>
-
- <div class="navbar-wagon">
-      <div class="navbar-wagon-left">
-        <%= link_to root_path do %>
-          <%= image_tag "logo.jpg", alt: "logo", class: "navbar-brand"%>
-        <% end %>
-      <div class="navbar-wagon-item navbar-wagon-link">
-        <%= link_to 'Login', new_user_session_path %>
-      </div>
-       <div class="navbar-wagon-item navbar-wagon-link">
-        <%= link_to 'Sign_up', new_user_registration_path %>
-      </div>
-
-
-
-      <div class="navbar-wagon-right">
-        <%= form_tag do %>
-          <%= text_field_tag :term %>
-            <%= submit_tag 'Search' %>
-          <% end %>
-      </div>
-
-  <!-- Dropdown appearing on mobile only -->
-      <div class="navbar-wagon-item hidden-md hidden-lg">
-        <div class="dropdown">
-          <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li> <%= link_to 'Login', new_user_session_path %></li>
-            <li><%= link_to 'Sign-Up', new_user_registration_path %></li>
-            <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to 'Search' %></li>>
-          </ul>
-        </div>
+<div class="navbar-wagon">
+  <div class="navbar-wagon-left">
+    <%= link_to root_path do %>
+    <%= image_tag "logo1.jpg", alt: "logo", class: "navbar-brand"%>
+    <%  end %>
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu alex">
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Search' %></li>
+          <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        </ul>
       </div>
     </div>
   </div>
+
+
+  <div class="navbar-wagon-right">
+   <div class="navbar-wagon-item navbar-wagon-link alex">
+    <i class="fas fa-paw"></i>
+    <%= link_to 'Find a Doggo', dogs_path %>
+  </div>
+  <div class="navbar-wagon-item navbar-wagon-link alex">
+    <i class="fas fa-home"></i>
+    <%= link_to 'Rent My Doggy', new_dog_path %>
+  </div>
+  <%= simple_form_for :dog do |f| %>
+  <div class="flex-form search-input" id="search-form">
+    <%= f.input :query, class:"form-inline search-input", label: false, id:"search-form" %>
+    <%= f.submit "Search", class:"btn btn-outline-success search-button" %>
+  </div>
+  <% end %>
+
+  <%#= form_tag do %>
+  <%#= text_field_tag :term, class:"form-control" %>
+  <%#= submit_tag 'Search', class:"btn btn-outline-success" %>
+  <%# end %>
+  <div class="navbar-wagon-item navbar-wagon-link alex">
+    <i class="fas fa-sign-out-alt"></i>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  </div>
+</div>
+
+<!-- Dropdown appearing on mobile only -->
+
+</div>
+
+<% else %>
+
+
+<div class="navbar-wagon">
+  <div class="navbar-wagon-left">
+    <%= link_to root_path do %>
+    <%= image_tag "logo1.jpg", alt: "logo", class: "navbar-brand"%>
+    <% end %>
+    <div class="navbar-wagon-item navbar-wagon-link">
+      <%= link_to 'Login', new_user_session_path %>
+    </div>
+    <div class="navbar-wagon-item navbar-wagon-link">
+      <%= link_to 'Sign_up', new_user_registration_path %>
+    </div>
+
+    <div class="navbar-wagon-right">
+      <%= form_tag do %>
+      <%= text_field_tag :term %>
+      <%= submit_tag 'Search' %>
+      <% end %>
+    </div>
+
+    <!-- Dropdown appearing on mobile only -->
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li> <%= link_to 'Login', new_user_session_path %></li>
+          <li><%= link_to 'Sign-Up', new_user_registration_path %></li>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Search' %></li>>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
