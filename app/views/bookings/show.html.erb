@@ -14,7 +14,7 @@
     </div>
 
     <% if @booking.dog.photo %>
-      <%= cl_image_tag @booking.dog.photo, class: 'booking-image' %>
+      <%= cl_image_tag @booking.dog.photo, height: 300, width: 350, crop: :fill %>
     <% else %>
       <img src="https://goo.gl/images/GPguPA" alt="" class='booking-image'>
     <% end %>
