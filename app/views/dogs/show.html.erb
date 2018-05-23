@@ -1,48 +1,38 @@
 <div class="container booking-box">
+  <div class="small-banner" style="background-image: linear-gradient(-225deg, rgba(0,50,50,0.6) 0%, rgba(0,36,61,0.6) 50%),  url(<%= image_path "banner.jpg" %>);"></div>
+  <!-- change the banner -->
 
 
-  <div class="dog-show col-md-6 col-md-offset-2">
+  <div class="dog-show col-md-8 col-sm-6 col-xs-4">
+    <div><%= cl_image_tag @dog.photo, height: 300, width: 400, crop: :fill%></div>
     <h1><%= @dog.name.capitalize %></h1>
-    <h3><em>Owner: <%= @dog.user.first_name.capitalize %></em> </h3>
-    <div><%= cl_image_tag @dog.photo, height: 300, width: 350, crop: :fill%></div>
-     <br>
-
-    <h3><%= @dog.size.capitalize %> <%= @dog.breed.capitalize %> <% if @dog.gender == "male" %> <i class="fas fa-mars"></i>
-      <% else %>
-      <i class="fas fa-venus"></i>
-      <%end%>
-
-
-    </h3>
-
-
+    <h3><%= @dog.breed.capitalize %></h3>
+    <img src="" alt="" class="avatar">
     <p><%= @dog.description %></p>
-
-
+    <p><%= @dog.price %></p>
+    <p><%= @dog.size %></p>
     <% if policy(@dog).edit? %>
     <%= link_to 'Edit', edit_dog_path(@dog) %> |
     <% end %>
 
     <% if policy(@dog).destroy? %>
-    <%= link_to 'Destroy', @dog, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Destroy', @restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </div>
 
 
   <!-- code bookings here -->
-  <div class="right-side col-xs-4 dog-show booking">
-<div class="booking-form">
-    <h1> Spend time with <%= @dog.name.capitalize %></h1>
+  <div class="right-side col-xs-4 dog-show">
     <%= simple_form_for [@dog, @booking] do |f| %>
-    <h3>Price per hour: $<%= @dog.price %></h3>
+    <h3>Price $<%= @dog.price %></h3>
     <%= f.input :start_time, as: :string, input_html: { class: "datepicker"} %>
     <%= f.input :end_time, as: :string, input_html: { class: "datepicker"} %>
     <%= f.input :details %>
     <%#= f.input :price, value: @dog.price, as: :hidden %>
-    <%= f.button :submit, "Book Now", class: "btn btn-success"  %>
+    <%= f.button :submit, "Book Now"  %>
     <% end %>
   </div>
-</div>
+
 </div>
 
 <div id="bookingStart" data-dates="<%= @already_booked_start %>"></div>
