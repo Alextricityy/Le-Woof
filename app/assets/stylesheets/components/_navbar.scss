@@ -202,7 +202,7 @@
 }
 
 .search-button {
-  height: 39px;
+  height: 25px;
 }
 .search-input{
   height:25px !important;
@@ -210,5 +210,13 @@
 
 #search-form{
   height:25px !important;
+  margin-top: 1px;
+}
+.btn-outline-success{
+  border-color: #62D2A2 !important;
+    margin-top: 1px !important;
 
+}
+.btn-outline-success:hover{
+  background-color: #62D2A2 !important;
 }

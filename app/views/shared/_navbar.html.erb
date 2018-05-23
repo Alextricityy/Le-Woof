@@ -27,17 +27,14 @@
     <i class="fas fa-home"></i>
     <%= link_to 'Rent My Doggy', new_dog_path %>
   </div>
-  <%= simple_form_for :dog do |f| %>
+
+
+  <%= form_tag do %>
   <div class="flex-form search-input" id="search-form">
-    <%= f.input :query, class:"form-inline search-input", label: false, id:"search-form" %>
-    <%= f.submit "Search", class:"btn btn-outline-success search-button" %>
+  <%= text_field_tag :search, params[:search], :class => "form-inline search-input", label: false, id:"search-form" %>
+  <%= submit_tag 'Search', class:"btn btn-outline-success search-button" %>
   </div>
   <% end %>
-
-  <%#= form_tag do %>
-  <%#= text_field_tag :term, class:"form-control" %>
-  <%#= submit_tag 'Search', class:"btn btn-outline-success" %>
-  <%# end %>
   <div class="navbar-wagon-item navbar-wagon-link alex">
     <i class="fas fa-sign-out-alt"></i>
     <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
