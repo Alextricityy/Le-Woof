@@ -1,3 +1,15 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+body {
+    margin: 0 0 80px;
+    /* bottom = footer height */
+    padding: 25px;
+}
+
 .footer {
   background: #F4F4F4;
   display: flex;
@@ -6,10 +18,13 @@
   height: 80px;
   padding: 0px 40px;
   color: rgba(0,0,0,0.3);
-  // position: fixed;
+  position: absolute;
+  right: 0;
   left: 0;
   bottom: 0;
   width: 100%;
+  // padding-top: 50px;;
+  overflow: hidden;
 }
 .footer-links {
   display: flex;
@@ -27,4 +42,9 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+.custom-container-home {
+  min-height: 100%;
+  position: relative;
 }
