@@ -2,7 +2,16 @@ class DogsController < ApplicationController
   before_action :set_dog, except: [:new, :index, :create]
 
   def index
+
     @dogs = policy_scope(Dog).order(created_at: :desc)
+    if params[:search].present?
+      @dogs = Dog.search_everything(params[:search])
+      @dogs = @dogs.where(params[:name])
+    else
+      @dogs = Dog.all
+    end
+    # authorize @dogs
+
   end
 
   def new
