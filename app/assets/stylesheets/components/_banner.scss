@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: calc(100vh - 70px);
 }
 .small-banner{
   background-size: cover !important;
@@ -22,9 +23,19 @@
   text-align: center;
   padding-top: 200px;
   margin-top: 50px;
-  h1{
-    font-size:50px !important;
+}
+.banner-h1{
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  font-size:50px !important;
   }
+
+.banner-text{
+  font-size: 15px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
   .btn-primary{
     size:300px;
   }

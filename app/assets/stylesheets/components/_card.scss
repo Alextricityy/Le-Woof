@@ -6,6 +6,7 @@
 
 .card-photo {
   height: 200px;
+  background-size: cover;
 }
 
 .card-name {
@@ -13,18 +14,24 @@
   background: #f0f5f5;
   height: 80px;
   font-size: 32px;
-  font-style: bold;
+  font-style: thin;
   font-family: 'Heebo', sans-serif;
+  color: black;
 }
 .card-name p {
-  font-size: 12px;
+  font-size: 15px;
+  color: gray;
+  font-style: thin;
+
 }
 
 .card-info {
   height: 130px;
   padding: 10px;
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Helvetica', sans-serif;
   font-size: 14px;
+  color:black;
+  font-weight:lighter ;
 }
 
 .card:hover {
@@ -36,6 +43,8 @@
   height: 25px;
   padding: 10px;
   display: flex;
+  color: gray;
+  font-style: bold;
 }
 
 
@@ -49,9 +58,10 @@
 }
 
 .card-icon {
-  background-color: #141f1f;
+  background-color: gray;
   width: 40px;
   color: white;
+  border-radius: 2px;
 }
 
 // .card{
