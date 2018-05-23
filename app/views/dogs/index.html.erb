@@ -6,7 +6,7 @@
     </h1>
     <p class="banner-text">Connecting dog owners with local dog lovers</p>
     <a href="#dogs" class="button">
-      Hello
+      Show Me Dogs
     </a>
   </div>
 </div>
@@ -14,6 +14,7 @@
 
 <!-- Below is the dogs cards container -->
 <div class="container">
+  <a name = "dogs"></a>
   <div class="row">
     <% @dogs.each do |dog| %>
       <div class="col-xs-12 col-md-4 col-sm-8">
@@ -25,9 +26,7 @@
             <% photo_url = "url('https://goo.gl/images/GPguPA')" %>
           <% end %>
           <div class="card-photo" style="background-image: url('<%= photo_url %>');">
-            <div >
-              <p class="card-icon">icons</p>
-            </div>
+
           </div>
           <div class="card-name">
             <h3><%= dog.name.capitalize %></h3>
