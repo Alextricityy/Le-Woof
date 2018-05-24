@@ -1,6 +1,10 @@
 .card {
+  position: relative;
   margin: 20px 0;
-  box-shadow: 0.3px 0.7px 0.3px 0.7px #ffffff;
+  box-shadow: 0.3px 0.7px 0.3px 3px #ffffff;
+ // width:  93% !important;
+ padding: 10px;
+
 }
 
 
@@ -12,27 +16,43 @@
 
 .card-name {
   padding: 10px;
-  background: #f0f5f5;
-  height: 80px;
-  font-size: 32px;
+
+  // height: 80px;
+  // font-size: 32px;
   font-style: thin;
   font-family: 'Heebo', sans-serif;
   color: black;
+  background: #e2eaec;
 }
 .card-name p {
   font-size: 15px;
   color: gray;
   font-style: thin;
+.card-name h3 {
+  padding-bottom:20px;
+}
+.dog-name{
+  // display: flex;
+  // position: absolute;
+  font-size: 14px;
+}
+.dog-price{
+  // display:flex;
+  // position: absolute;
+  font-size: 12px;
+  margin-top: 5px;
+  color:#827c7c;
+}
 
 }
 
 .card-info {
   height: 130px;
-  padding: 10px;
   font-family: 'Helvetica', sans-serif;
   font-size: 14px;
   color:black;
   font-weight:lighter ;
+  padding: 8px;
 }
 
 .card:hover {
@@ -42,10 +62,11 @@
 
 .card-date{
   height: 25px;
-  padding: 10px;
+ padding: 10px;
   display: flex;
   color: gray;
   font-style: bold;
+  font-size: 11px;
 }
 
 
@@ -53,6 +74,15 @@
   display: flex;
   align-items: center;
   }
+
+.container{
+  padding:20px;
+  padding-left: 19px;
+    padding-right: 20px;
+}
+
+
+
 
 
 // .card{
@@ -163,6 +193,7 @@
 //   bottom:0;
 //   right:0;
 //   left:0;
+//   z-index: 3;
 // }
 // #divider-section {
 //   // margin-top: 60px;
