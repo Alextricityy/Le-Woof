@@ -65,7 +65,7 @@
 <div id="bookingStart" data-dates="<%= @already_booked_start %>"></div>
 <div id="bookingEnd" data-dates="<%= @already_booked_end %>"></div>
 
-<!-- <script>
+<script>
   // function yellowStar(event) {
   //   event.target.classList.remove("far")
   //   event.target.classList.add("fas")
@@ -76,23 +76,27 @@
   // document.querySelector("#star4").addEventListener("click", yellowStar);
   // document.querySelector("#star5").addEventListener("click", yellowStar);
   const stars = Array.from(document.querySelectorAll(".fa-star"));
+  const div = document.querySelector(".rating")
   console.log(stars)
   // console.log(typeof stars)
-  [1,2,3].forEach(function(i) {
-    document.querySelector(".rating").insertAdjacentHTML("<i class='far fa-star bigger-star'></i>")
-  });
+  // [1,2,3].forEach(function(i) {
+  //   document.querySelector(".rating").insertAdjacentHTML("<i class='far fa-star bigger-star'></i>")
+  // });
   stars.forEach((star) => {
-    star.addEventListener("click", function(event) {
-      starIndex = stars.indexOf(event.currentTarget);
-      for (var i = 0; i < starIndex; i++) {
-        stars[i].classList.toggle("fas");
-      }
-      star.classList.toggle("fas");
-      star.classList.add("far");
-      console.log(starIndex)
-      const ratingInput = document.getElementById('review_rating')
-      ratingInput.value = starIndex + 1
+   star.addEventListener("click", function(event) {
+    stars.forEach((star) => {
+      star.classList.remove("fas")
     })
 
+    starIndex = stars.indexOf(event.currentTarget);
+    for (var i = 0; i <= starIndex; i++) {
+
+      stars[i].classList.add("fas");
+    }
+    console.log(starIndex)
+    const ratingInput = document.getElementById('review_rating')
+    ratingInput.value = starIndex + 1
   })
-</script> -->
+ })
+
+</script>
