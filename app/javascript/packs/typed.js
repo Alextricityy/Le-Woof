@@ -9,4 +9,4 @@ function loadDynamicBannerText() {
   });
 }
 
-export { loadDynamicBannerText };
+loadDynamicBannerText();
