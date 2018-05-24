@@ -31,9 +31,7 @@ class DogsController < ApplicationController
       @dogs = Dog.all
     end
 
-
-
-    # authorize @dogs
+    authorize @dogs
 
 
     # @dogs = policy_scope(Dog).order(created_at: :desc)
@@ -59,7 +57,6 @@ class DogsController < ApplicationController
   end
 
   def create
-
     @dog = Dog.new(dog_params)
         authorize @dog
     @dog.user = current_user
@@ -94,6 +91,8 @@ class DogsController < ApplicationController
 
   @already_booked_start = @dog.bookings.map { |booking| booking.start_time.strftime("%Y-%m-%e ") }
   @already_booked_end = @dog.bookings.map { |booking| booking.end_time.strftime("%Y-%m-%e ") }
+  @review = Review.new
+  @reviews = Review.all
   authorize @dog
 
    @markers =

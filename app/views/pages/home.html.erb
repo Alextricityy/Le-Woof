@@ -1,10 +1,10 @@
 <!-- Below is the home banner -->
-<div class="small-banner" style="background-image :linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "banner.jpg" %>);">
+<div class="home-banner" style="background-image :linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "banner.jpg" %>);">
   <div>
     <h1 class="banner-h1">
       Le Woof
     </h1>
-    <p class="banner-text">Connecting dog owners with local dog lovers</p>
+    <p class="banner-text"><span id = "banner-typed-text"></span></p>
     <a href="#dogs" class="button">
       Show Me Dogs
     </a>
@@ -14,20 +14,11 @@
 
 <!-- Below is the dogs cards container -->
 
-
-<div
-  id="map"
-  style="width: 80%;
-  height: 600px";
-  class="map-woof"
-  data-markers="<%= @markers.to_json %>"
-></div>
-
 <div class="container">
   <a name = "dogs"></a>
 
   <div class="row">
-    <% @dogs.each do |dog| %>
+    <% @dogs.first(6).each do |dog| %>
       <div class="col-xs-12 col-md-4 col-sm-8">
         <div class="card">
           <%= link_to dog, class: "card-link" do%>
@@ -55,8 +46,6 @@
     <% end %>
   </div>
 </div>
+<div id="bookingStart"></div>
+<div id="bookingEnd"></div>
 <!-- Above is the dogs cards container -->
-
-
-
-

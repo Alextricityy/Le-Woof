@@ -1,4 +1,7 @@
 import "bootstrap";
 // app/javascript/packs/application.js
 import "../plugins/flatpickr";
-// import "map";
+
+import { loadDynamicBannerText } from './typed';
+loadDynamicBannerText();
+
