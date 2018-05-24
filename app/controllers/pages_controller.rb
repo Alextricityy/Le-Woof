@@ -7,9 +7,6 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     @bookings = @user.bookings
-    @user.dogs.each do |dog|
-      @bookings << dog.bookings
-    end
     authorize @bookings
   end
 
