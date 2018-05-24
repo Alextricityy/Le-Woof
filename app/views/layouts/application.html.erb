@@ -23,11 +23,16 @@
 
     <%= render"shared/footer" %>
 
+
+
+<%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['AIzaSyC85Hx0AFmnNpIqbGfOcnGg_DeSVMQ4o3Q']}" %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= stylesheet_pack_tag 'application' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
     <%= javascript_pack_tag "map" %> <!-- add this line -->
+
+
 
 </body>
 </html>

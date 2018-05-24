@@ -48,3 +48,11 @@
 <div id="bookingStart" data-dates="<%= @already_booked_start %>"></div>
 <div id="bookingEnd" data-dates="<%= @already_booked_end %>"></div>
 
+
+<div
+  id="map"
+  style="width: 50%;
+  height: 600px";
+  class="map-woof"
+  data-markers="<%= @markers.to_json %>"
+></div>

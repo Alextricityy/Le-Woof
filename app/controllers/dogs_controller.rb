@@ -13,8 +13,8 @@ class DogsController < ApplicationController
           location_dogs << d
         end
       end
+    @dogs = search_dogs & location_dogs
 
-      @dogs = search_dogs & location_dogs
     elsif params[:location].present?
       users = User.near(params[:location], 20)
       location_dogs = []
@@ -23,6 +23,8 @@ class DogsController < ApplicationController
           location_dogs << d
         end
       end
+     @dogs = location_dogs
+
     elsif params[:search].present?
       @dogs = Dog.search_everything(params[:search])
     else
@@ -93,6 +95,13 @@ class DogsController < ApplicationController
   @already_booked_start = @dog.bookings.map { |booking| booking.start_time.strftime("%Y-%m-%e ") }
   @already_booked_end = @dog.bookings.map { |booking| booking.end_time.strftime("%Y-%m-%e ") }
   authorize @dog
+
+   @markers =
+      {
+        lat: @dog.user.latitude,
+        lng: @dog.user.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
   end
 
   private
