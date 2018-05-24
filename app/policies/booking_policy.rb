@@ -5,6 +5,10 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+def dashboard?
+  return true
+end
+
   def create?
     return true
   end
@@ -14,10 +18,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
 
-  private
 
- def user_is_owner?
-    record.user == user
-  end
 end
 
