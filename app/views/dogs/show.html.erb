@@ -5,7 +5,7 @@
     <h1><%= @dog.name.capitalize %></h1>
     <h3><em>Owner: <%= @dog.user.first_name.capitalize %></em> </h3>
     <div><%= cl_image_tag @dog.photo, height: 300, width: 350, crop: :fill%></div>
-     <br>
+    <br>
 
     <h3><%= @dog.size.capitalize %> <%= @dog.breed.capitalize %> <% if @dog.gender == "male" %> <i class="fas fa-mars"></i>
       <% else %>
@@ -31,29 +31,68 @@
 
   <!-- code bookings here -->
   <div class="right-side col-xs-4 dog-show booking">
-<div class="booking-form">
-    <h1> Spend time with <%= @dog.name.capitalize %></h1>
-    <%= simple_form_for [@dog, @booking] do |f| %>
-    <h3>Price per hour: $<%= @dog.price %></h3>
-    <%= f.input :start_time, as: :string, input_html: { class: "datepicker"} %>
-    <%= f.input :end_time, as: :string, input_html: { class: "datepicker"} %>
-    <%= f.input :details %>
-    <%#= f.input :price, value: @dog.price, as: :hidden %>
-    <%= f.button :submit, "Book Now", class: "btn btn-success"  %>
-    <% end %>
+    <div class="booking-form">
+      <h1> Spend time with <%= @dog.name.capitalize %></h1>
+      <%= simple_form_for [@dog, @booking] do |f| %>
+      <h3>Price per hour: $<%= @dog.price %></h3>
+      <%= f.input :start_time, as: :string, input_html: { class: "datepicker"} %>
+      <%= f.input :end_time, as: :string, input_html: { class: "datepicker"} %>
+      <%= f.input :details %>
+      <%#= f.input :price, value: @dog.price, as: :hidden %>
+      <%= f.button :submit, "Book Now", class: "btn btn-success"  %>
+      <% end %>
+    </div>
   </div>
 </div>
-</div>
 <!-- Reviews here -->
-<div class="col-xs-2 offset-md-4">
- <%= simple_form_for [@dog, @review] do |f| %>
+<div class="col-xs-3 offset-md-4">
+ <%= simple_form_for [@dog, @review], url: dog_reviews_path(@dog), method: :post do |f| %>
  <h3>Leave a Review for <%= @dog.name %></h3>
- <%= f.input :rating %>
- <%= f.input :content %>
- <%= f.button :submit, "Review", class: "btn btn-success" %>
+
+ <div class = "rating">
+  <i class="far fa-star bigger-star" id = "star1"></i>
+  <i class="far fa-star bigger-star" id = "star2"></i>
+  <i class="far fa-star bigger-star" id = "star3"></i>
+  <i class="far fa-star bigger-star" id = "star4"></i>
+  <i class="far fa-star bigger-star" id = "star5"></i>
+</div>
+<%= f.input :rating, :as => :hidden %>
+<%= f.input :content %>
+<%= f.button :submit, "Review", class: "btn btn-success" %>
 </div>
 <% end %>
 
 <div id="bookingStart" data-dates="<%= @already_booked_start %>"></div>
 <div id="bookingEnd" data-dates="<%= @already_booked_end %>"></div>
 
+<!-- <script>
+  // function yellowStar(event) {
+  //   event.target.classList.remove("far")
+  //   event.target.classList.add("fas")
+  // }
+  // document.querySelector("#star1").addEventListener("click", yellowStar);
+  // document.querySelector("#star2").addEventListener("click", yellowStar);
+  // document.querySelector("#star3").addEventListener("click", yellowStar);
+  // document.querySelector("#star4").addEventListener("click", yellowStar);
+  // document.querySelector("#star5").addEventListener("click", yellowStar);
+  const stars = Array.from(document.querySelectorAll(".fa-star"));
+  console.log(stars)
+  // console.log(typeof stars)
+  [1,2,3].forEach(function(i) {
+    document.querySelector(".rating").insertAdjacentHTML("<i class='far fa-star bigger-star'></i>")
+  });
+  stars.forEach((star) => {
+    star.addEventListener("click", function(event) {
+      starIndex = stars.indexOf(event.currentTarget);
+      for (var i = 0; i < starIndex; i++) {
+        stars[i].classList.toggle("fas");
+      }
+      star.classList.toggle("fas");
+      star.classList.add("far");
+      console.log(starIndex)
+      const ratingInput = document.getElementById('review_rating')
+      ratingInput.value = starIndex + 1
+    })
+
+  })
+</script> -->
