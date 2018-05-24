@@ -61,6 +61,12 @@
 <%= f.button :submit, "Review", class: "btn btn-success" %>
 </div>
 <% end %>
+<div>
+  <%= @reviews.each do |review|%>
+  <%= review.rating %>
+  <%= review.content %>
+  <% end %>
+</div>
 
 <div id="bookingStart" data-dates="<%= @already_booked_start %>"></div>
 <div id="bookingEnd" data-dates="<%= @already_booked_end %>"></div>
