@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :dogs do
-    resources :bookings, only: [:create, :show]
-    resources :reviews
+    resources :bookings, except: [:index, :new]
+    resources :reviews, only: [:create]
   end
 end
