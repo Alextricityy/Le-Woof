@@ -1,8 +1,5 @@
 <div class="container booking-box">
 
-<div class="small-banner" style="background-image: linear-gradient(-225deg, rgba(0,50,50,0.6) 0%, rgba(0,36,61,0.6) 50%),  url(<%= image_path "banner.jpg" %>);">
-</div>
-
 
   <div class="dog-show col-md-6 col-md-offset-2">
     <h1><%= @dog.name.capitalize %></h1>
@@ -47,6 +44,15 @@
   </div>
 </div>
 </div>
+<!-- Reviews here -->
+<div class="col-xs-2 offset-md-4">
+ <%= simple_form_for [@dog, @review] do |f| %>
+ <h3>Leave a Review for <%= @dog.name %></h3>
+ <%= f.input :rating %>
+ <%= f.input :content %>
+ <%= f.button :submit, "Review", class: "btn btn-success" %>
+</div>
+<% end %>
 
 <div id="bookingStart" data-dates="<%= @already_booked_start %>"></div>
 <div id="bookingEnd" data-dates="<%= @already_booked_end %>"></div>
