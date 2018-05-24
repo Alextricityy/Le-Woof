@@ -20,12 +20,23 @@
 
   <div class="navbar-wagon-right">
    <div class="navbar-wagon-item navbar-wagon-link alex">
+    <%= link_to dogs_path do%>
     <i class="fas fa-paw"></i>
-    <%= link_to 'Find a Doggo', dogs_path %>
+    Find a Doggo
+    <%end%>
   </div>
   <div class="navbar-wagon-item navbar-wagon-link alex">
+    <%= link_to new_dog_path do %>
     <i class="fas fa-home"></i>
-    <%= link_to 'Rent My Doggy', new_dog_path %>
+    Rent My Doggy
+    <%end%>
+  </div>
+  <div class="navbar-wagon-item navbar-wagon-link alex">
+    <%= link_to user_dashboard_path(current_user) do%>
+    <i class="far fa-calendar-alt"></i>
+    My Bookings
+    <%end%>
+
   </div>
 
 
