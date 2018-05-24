@@ -10,7 +10,7 @@ class DogsController < ApplicationController
     else
       @dogs = Dog.all
     end
-    # authorize @dogs
+    authorize @dogs
 
   end
 
