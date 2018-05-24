@@ -4,15 +4,52 @@ class DogsController < ApplicationController
   def index
 
     @dogs = policy_scope(Dog).order(created_at: :desc)
-    if params[:search].present?
+    if params[:search].present? && params[:location].present?
+      search_dogs = Dog.search_everything(params[:search])
+      users = User.near(params[:location], 20)
+      location_dogs = []
+      users.each do |u|
+        u.dogs.each do |d|
+          location_dogs << d
+        end
+      end
+    @dogs = search_dogs & location_dogs
+
+    elsif params[:location].present?
+      users = User.near(params[:location], 20)
+      location_dogs = []
+      users.each do |u|
+        u.dogs.each do |d|
+          location_dogs << d
+        end
+      end
+     @dogs = location_dogs
+
+    elsif params[:search].present?
       @dogs = Dog.search_everything(params[:search])
-      @dogs = @dogs.where(params[:name])
     else
       @dogs = Dog.all
     end
+
     authorize @dogs
 
+
+    # @dogs = policy_scope(Dog).order(created_at: :desc)
+    @good_dogs = @dogs.select do |dog|
+      !dog.user.latitude.nil? && !dog.user.longitude.nil?
+    end
+
+
+    @markers = @good_dogs.map do |dog|
+      {
+        lat: dog.user.latitude,
+        lng: dog.user.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
+
   end
+
 
   def new
     @dog = Dog.new
@@ -20,7 +57,6 @@ class DogsController < ApplicationController
   end
 
   def create
-
     @dog = Dog.new(dog_params)
         authorize @dog
     @dog.user = current_user
@@ -58,6 +94,14 @@ class DogsController < ApplicationController
   @review = Review.new
   @reviews = Review.all
   authorize @dog
+
+   @markers =
+      {
+        lat: @dog.user.latitude,
+        lng: @dog.user.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+
   end
 
   private

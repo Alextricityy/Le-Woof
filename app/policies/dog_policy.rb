@@ -21,6 +21,10 @@ class DogPolicy < ApplicationPolicy
     user_is_owner?
   end
 
+  def index?
+    true
+  end
+
 
   private
 
