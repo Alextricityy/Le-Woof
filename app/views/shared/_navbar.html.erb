@@ -19,12 +19,14 @@
 
 
   <div class="navbar-wagon-right">
+
    <div class="navbar-wagon-item navbar-wagon-link alex">
     <%= link_to dogs_path do%>
     <i class="fas fa-paw"></i>
     Find a Doggo
     <%end%>
   </div>
+    
   <div class="navbar-wagon-item navbar-wagon-link alex">
     <%= link_to new_dog_path do %>
     <i class="fas fa-home"></i>
@@ -38,19 +40,22 @@
     <%end%>
 
   </div>
-
-
-  <%= form_tag dogs_path, :method => 'get' do %>
-  <div class="flex-form search-input" id="search-form">
-    <%= text_field_tag :search, params[:search], :class => "form-inline search-input", label: false, id:"search-form" %>
-    <%= submit_tag 'Search', class:"btn btn-outline-success search-button", :name => nil %>
-  </div>
-  <% end %>
   <div class="navbar-wagon-item navbar-wagon-link alex">
     <i class="fas fa-sign-out-alt"></i>
     <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
   </div>
+
+
+
+  <%= form_tag dogs_path, :method => 'get' do %>
+  <div class="flex-form search-input" id="search-form">
+    <%= text_field_tag :search, params[:search], :class => "form-inline search-input", label: false, id:"search-form", placeholder: "search term"%>
+    <%= text_field_tag :location, params[:location], :class => "form-inline search-input", label: false, id:"search-form", placeholder: "Location" %>
+    <%= submit_tag 'Search', class:"btn btn-outline-success search-button", :name => nil %>
+  </div>
+  <% end %>
 </div>
+
 
 <!-- Dropdown appearing on mobile only -->
 
@@ -87,10 +92,11 @@
   </div>
 
 
-  <%= form_tag dogs_path, method: :get do %>
+   <%= form_tag dogs_path, :method => 'get' do %>
   <div class="flex-form search-input" id="search-form">
-    <%= text_field_tag :search, params[:search], :class => "form-inline search-input", label: false, id:"search-form" %>
-    <%= submit_tag 'Search', class:"btn btn-outline-success search-button" %>
+    <%= text_field_tag :search, params[:search], :class => "form-inline search-input", label: false, id:"search-form", placeholder: "search term"%>
+    <%= text_field_tag :location, params[:location], :class => "form-inline search-input", label: false, id:"search-form", placeholder: "Location" %>
+    <%= submit_tag 'Search', class:"btn btn-outline-success search-button", :name => nil %>
   </div>
   <% end %>
 

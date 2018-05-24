@@ -14,7 +14,7 @@ class Dog < ApplicationRecord
    include PgSearch
    # pg_search_scope :search, :against => :name
    pg_search_scope :search_everything,
-    against: [ :name, :breed, :size,  ],
+    against: [ :name, :breed, :size ],
     using: {
       tsearch: { prefix: true }
     }
