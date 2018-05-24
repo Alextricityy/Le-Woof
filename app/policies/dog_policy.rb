@@ -5,6 +5,10 @@ class DogPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    return true
+  end
+
   def create?
     return true
   end
@@ -20,7 +24,7 @@ class DogPolicy < ApplicationPolicy
 
   private
 
- def user_is_owner?
+  def user_is_owner?
     record.user == user
   end
 end

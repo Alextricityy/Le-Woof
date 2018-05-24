@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: :home
   include Pundit
     # [...]
     before_action :configure_permitted_parameters, if: :devise_controller?
 
-    after_action :verify_authorized, except: :index, unless: :skip_pundit?
-    after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+    after_action :verify_authorized, except: :home, unless: :skip_pundit?
+    after_action :verify_policy_scoped, only: :home, unless: :skip_pundit?
 
     def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
