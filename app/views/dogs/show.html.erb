@@ -61,11 +61,15 @@
 <%= f.button :submit, "Review", class: "btn btn-success" %>
 </div>
 <% end %>
+<div>
+  <%= @reviews.each do |review|%>
+  <%= review.rating %>
+  <%= review.content %>
+  <% end %>
+</div>
 
 <div id="bookingStart" data-dates="<%= @already_booked_start %>"></div>
 <div id="bookingEnd" data-dates="<%= @already_booked_end %>"></div>
-
-
 
 <div
   id="map"
@@ -74,6 +78,9 @@
   class="map-woof"
   data-markers="<%= @markers.to_json %>"
 ></div>
+
+<script>
+
 
 <!-- <script>
   // function yellowStar(event) {
@@ -86,24 +93,26 @@
   // document.querySelector("#star4").addEventListener("click", yellowStar);
   // document.querySelector("#star5").addEventListener("click", yellowStar);
   const stars = Array.from(document.querySelectorAll(".fa-star"));
+  const div = document.querySelector(".rating")
   console.log(stars)
   // console.log(typeof stars)
-  [1,2,3].forEach(function(i) {
-    document.querySelector(".rating").insertAdjacentHTML("<i class='far fa-star bigger-star'></i>")
-  });
+  // [1,2,3].forEach(function(i) {
+  //   document.querySelector(".rating").insertAdjacentHTML("<i class='far fa-star bigger-star'></i>")
+  // });
   stars.forEach((star) => {
-    star.addEventListener("click", function(event) {
-      starIndex = stars.indexOf(event.currentTarget);
-      for (var i = 0; i < starIndex; i++) {
-        stars[i].classList.toggle("fas");
-      }
-      star.classList.toggle("fas");
-      star.classList.add("far");
-      console.log(starIndex)
-      const ratingInput = document.getElementById('review_rating')
-      ratingInput.value = starIndex + 1
+   star.addEventListener("click", function(event) {
+    stars.forEach((star) => {
+      star.classList.remove("fas")
     })
 
-  })
-</script> -->
+    starIndex = stars.indexOf(event.currentTarget);
+    for (var i = 0; i <= starIndex; i++) {
 
+      stars[i].classList.add("fas");
+    }
+    console.log(starIndex)
+    const ratingInput = document.getElementById('review_rating')
+    ratingInput.value = starIndex + 1
+  })
+
+</script> -->
