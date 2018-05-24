@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users, only: [] do
-  get 'dashboard', to: 'users#dashboard'
-  end
+
+  get 'dashboard', to: 'pages#dashboard'
+
 
   # resources :users, only: [:show]
   root to: 'pages#home'
