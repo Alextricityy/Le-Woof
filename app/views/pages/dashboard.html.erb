@@ -2,10 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-xs-offset-1">
 
-      <h1>Dashboard</h1>
-      <hr>
-
-      <h2> My Bookings </h2>
+      <h2><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>'s Bookings</h2>
 
       <div class="row heading">
        <div class="col-xs-2">
@@ -32,10 +29,10 @@
         <%end%>
       </div>
       <div class="col-xs-2">
-       <p> <%=booking.start_time %></p>
+       <p> <%=booking.start_time.strftime("%e %b %Y %H:%M%p") %></p>
      </div>
      <div class="col-xs-2">
-       <p> <%=booking.end_time%></p>
+       <p> <%=booking.end_time.strftime("%e %b %Y %H:%M%p")%></p>
      </div>
      <div class="col-xs-1">
        <p> £<%=booking.price%></p>
@@ -47,14 +44,15 @@
    <%end%>
 
  <hr>
+</br>
 <h2> My Dogs' Bookings </h2>
 
       <div class="row heading">
        <div class="col-xs-1">
          <h3> Dog </h3>
        </div>
-       <div class="col-xs-1">
-         <h3> Borrower</h3>
+       <div class="col-xs-1 text-center">
+         <h3> Client</h3>
        </div>
        <div class="col-xs-2">
          <h3> Start Time </h3>
@@ -70,15 +68,41 @@
        </div>
      </div>
 <% @user.dogs.each do |dog| %>
-     <div class="row">
+     <div class="row dog-booking">
        <div class="col-xs-2">
         <%=link_to dog do%>
         <p> <%=dog.name.capitalize%> </p>
         <%end%>
-
       </div>
     </div>
-     <%end%>
+    <% dog.bookings.each do |booking| %>
+    <div class="row">
+       <div class="col-xs-1">
+       </div>
+       <div class="col-xs-1">
+        <p> <%=booking.user.first_name.capitalize%> </p>
+      </div>
+      <div class="col-xs-2">
+       <p> <%=booking.start_time.strftime("%e %b %Y %H:%M%p") %></p>
+     </div>
+     <div class="col-xs-2">
+       <p> <%=booking.end_time.strftime("%e %b %Y %H:%M%p")%></p>
+     </div>
+     <div class="col-xs-1">
+       <p> £<%=booking.price%></p>
+     </div>
+     <div class="col-xs-2">
+       <p> Pending</p>
+     </div>
+   </div>
+   <%end%>
+   <br>
+
+<%end%>
+<hr>
+     </div>
+      </div>
+    </div>
 
 
 
