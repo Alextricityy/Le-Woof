@@ -5,6 +5,10 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  def dashboard?
+    user_is_owner?
+  end
+
   def create?
     return true
   end
