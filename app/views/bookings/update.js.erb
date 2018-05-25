@@ -1,0 +1,3 @@
+// status = document.getElementById("status-booking<%=@booking.id%>")
+document.querySelector("#status-value<%=@booking.id%>").parentNode.removeChild(document.querySelector("#status-value<%=@booking.id%>"))
+document.getElementById("status-booking<%=@booking.id%>").insertAdjacentHTML('beforeend', "<span class='<%=@booking.status%>' id='status-value<%= @booking.id %>' > <%=@booking.status.capitalize%> </span>")

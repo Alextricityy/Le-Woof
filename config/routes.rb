@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   get 'dashboard', to: 'pages#dashboard'
-
+  resources :bookings, only: [:update, :destroy]
 
   # resources :users, only: [:show]
   root to: 'pages#home'
