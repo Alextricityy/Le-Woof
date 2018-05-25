@@ -13,7 +13,7 @@ class DogsController < ApplicationController
           location_dogs << d
         end
       end
-    @dogs = search_dogs & location_dogs
+      @dogs = search_dogs & location_dogs
 
     elsif params[:location].present?
       users = User.near(params[:location], 20)
@@ -23,7 +23,7 @@ class DogsController < ApplicationController
           location_dogs << d
         end
       end
-     @dogs = location_dogs
+      @dogs = location_dogs
 
     elsif params[:search].present?
       @dogs = Dog.search_everything(params[:search])
@@ -44,7 +44,7 @@ class DogsController < ApplicationController
       {
         lat: dog.user.latitude,
         lng: dog.user.longitude,
-         infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { dog: dog }) }
+        infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { dog: dog }) }
       }
     end
 
@@ -58,7 +58,7 @@ class DogsController < ApplicationController
 
   def create
     @dog = Dog.new(dog_params)
-        authorize @dog
+    authorize @dog
     @dog.user = current_user
     if @dog.save
       redirect_to dog_path(@dog)
@@ -74,7 +74,7 @@ class DogsController < ApplicationController
   def update
     authorize @dog
     @dog.update(dog_params)
-      if @dog.save
+    if @dog.save
       redirect_to dogs_path
     else
       render "edit"
@@ -87,30 +87,41 @@ class DogsController < ApplicationController
   end
 
   def show
-  @booking = Booking.new
+    @booking = Booking.new
 
-  @already_booked_start = @dog.bookings.map { |booking| booking.start_time.strftime("%Y-%m-%e ") }
-  @already_booked_end = @dog.bookings.map { |booking| booking.end_time.strftime("%Y-%m-%e ") }
-  @review = Review.new
+    @already_booked_start = @dog.bookings.map { |booking| booking.start_time.strftime("%Y-%m-%e ") }
+    @already_booked_end = @dog.bookings.map { |booking| booking.end_time.strftime("%Y-%m-%e ") }
+    @review = Review.new
   # @reviews = Review.all
   authorize @dog
 
-   @markers =
-      {
-        lat: @dog.user.latitude,
-        lng: @dog.user.longitude,
+  @markers =
+  {
+    lat: @dog.user.latitude,
+    lng: @dog.user.longitude,
 
-      }
+  }
+  @new = average_rating(@dog)
+end
 
+private
+def set_dog
+ @dog = Dog.find(params[:id])
+end
+
+def dog_params
+  params.require(:dog).permit(:name, :description, :breed, :gender, :photo, :size, :price)
+end
+
+def average_rating(dog)
+  total = 0
+  dog.reviews.each do |review|
+    total += review.rating
   end
-
-  private
-  def set_dog
-     @dog = Dog.find(params[:id])
+  if dog.reviews.count >= 1
+    return total/ dog.reviews.count
+  else
+    return 0
   end
-
-  def dog_params
-    params.require(:dog).permit(:name, :description, :breed, :gender, :photo, :size, :price)
-  end
-
+end
 end
