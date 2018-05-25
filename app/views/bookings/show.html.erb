@@ -1,25 +1,21 @@
-
 <div class="container-booking">
 
-    <div class="text-background">
-      <div class="show-text">
-        <h1>Thank you for your booking!</h1>
-        <h2>You made a reservation for <strong><%= @booking.dog.name %></strong> on <i><%= @booking.start_time.strftime("%A, %d %b %Y %l:%M %p") %></i> until <i><%=  @booking.end_time.strftime("%A, %d %b %Y %l:%M %p")%></i></h2>
-        <p>Your booking status is: <strong class="pending">Pending</strong></p>
-        <p>If necessary, the owner of <%=  %> will get in touch with you to discuss any details regarding your booking.</p>
-      </div>
+  <div class="text-background">
+    <div class="show-text">
+      <h1>Thank you for your booking!</h1>
+      <h2>You made a reservation with <strong><%= @booking.dog.name %></strong> on <i><%= @booking.start_time.strftime("%A, %d %b %Y %l:%M %p") %></i> until <i><%=  @booking.end_time.strftime("%A, %d %b %Y %l:%M %p")%></i></h2>
+      <p>Your booking status is: <strong class="pending">Pending</strong></p>
+      <p>If necessary, the owner of <%=  %> will get in touch with you to discuss any details regarding your booking.</p>
+      <br>
+      <p> <%= link_to "View My Bookings", dashboard_path %> </p>
     </div>
-
-    <% if @booking.dog.photo %>
-      <%= cl_image_tag @booking.dog.photo, height: 300, width: 350, crop: :fill %>
-    <% else %>
-      <img src="https://goo.gl/images/GPguPA" alt="" class='booking-image'>
-    <% end %>
-
   </div>
 
-<div class="center">
-    <%= link_to 'Go Back', root_path, class: "button" %>
+  <% if @booking.dog.photo %>
+  <%= cl_image_tag @booking.dog.photo, height: 300, width: 350, crop: :fill, class: "booking-image" %>
+  <% else %>
+  <img src="https://goo.gl/images/GPguPA" alt="" class='booking-image'>
+  <% end %>
 </div>
 
 

@@ -1,12 +1,8 @@
-class DogPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
-  end
-
-  def index?
-    return true
   end
 
   def create?
@@ -21,10 +17,6 @@ class DogPolicy < ApplicationPolicy
     user_is_owner?
   end
 
-  def index?
-    true
-  end
-
 
   private
 
@@ -32,4 +24,5 @@ class DogPolicy < ApplicationPolicy
     record.user == user
   end
 end
+
 

@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_dog, only: :create
   before_action :set_booking, only: :show
 
+
   def create
     @booking = Booking.new(booking_params)
     authorize @booking
@@ -18,6 +19,7 @@ class BookingsController < ApplicationController
   def edit
 
   end
+
 
   def update
 
@@ -40,8 +42,11 @@ class BookingsController < ApplicationController
     @dog = Dog.find(params[:dog_id])
   end
 
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
   def booking_params
     params.require(:booking).permit(:details, :start_time, :end_time)
   end
-
 end
