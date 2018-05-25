@@ -1,11 +1,14 @@
 <div class="small-banner" style="background-image :linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "banner.jpg" %>);">
   <div>
     <h1 class="banner-h1">
-      Spend time with <%= @dog.name.capitalize %> the <%= @dog.breed.capitalize %>
+      Spend time with</h1>
+      <h1 class="banner-h1">
+       <%= @dog.name.capitalize %> </h1>
+       <h1 class="banner-h1">the <%= @dog.breed.capitalize %>
     </h1>
   </div>
 </div>
-<div class="dog-show">
+
   <div class="dog-show col-md-4 col-sm-6 col-xs-12 offset-md-2">
     <h1><%= @dog.name.capitalize %></h1>
     <h3><em>Owner: <%= @dog.user.first_name.capitalize %></em> </h3>
@@ -33,7 +36,7 @@
 
 
   <!-- code bookings here -->
-  <div class="col-md-2 col-sm-6 col-xs-12 dog-show booking">
+  <div class="col-md-4 col-sm-6 col-xs-12 dog-show booking">
     <div class="booking-form">
       <h1> Book a walk with <%= @dog.name.capitalize %></h1>
       <%= simple_form_for [@dog, @booking] do |f| %>
@@ -52,6 +55,7 @@
   <div class="review-list col-md-4 offset-md-2 spl">
     <!-- average -->
     <div class="col-xs-12 npl">
+      <hr>
       <h2>Average Rating</h2>
       <br>
 
