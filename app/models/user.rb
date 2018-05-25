@@ -5,7 +5,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :postcode, presence: true
-            :name
   has_many :dogs
   has_many :bookings
   geocoded_by :postcode
