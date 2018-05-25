@@ -50,9 +50,10 @@
         <i class='fas fa-star bigger-star'></i>
         <% end %>
       </h4>
-      <h4>No Reviews Yet</h4>
       <% if @dog.reviews.count >= 1 %>
       <h2>Latest Reviews</h2>
+      <% else %>
+      <h4>No Reviews Yet</h4>
       <% end %>
       <br>
       <% @dog.reviews.last(3).each do |review|%>
