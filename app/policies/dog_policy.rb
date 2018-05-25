@@ -22,7 +22,7 @@ class DogPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    return true
   end
 
 
