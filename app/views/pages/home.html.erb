@@ -22,7 +22,7 @@
 <a name="dogs"></a>
 <div class= "container">
 <div class="cards-slick">
-  <% 2.times do %>
+
     <% @dogs.first(6).each do |dog| %>
     <div class="card">
       <%= link_to dog_path(dog), class: "card-link" do %>
@@ -49,7 +49,7 @@
       <% end %>
     </div>
   <% end %>
-  <% end %>
+
 </div>
 </div>
 <div class="text-center">
