@@ -98,10 +98,8 @@ class DogsController < ApplicationController
    @markers =
       {
         lat: @dog.user.latitude,
-        lng: @dog.user.longitude,
-
+        lng: @dog.user.longitude
       }
-
   end
 
   private
