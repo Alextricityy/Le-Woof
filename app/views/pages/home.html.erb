@@ -14,38 +14,46 @@
 
 <!-- Below is the dogs cards container -->
 
-<div class="container">
-  <a name = "dogs"></a>
-
-  <div class="row">
+<!-- <div class="your-class"> -->
+  <!-- <div>your content</div> -->
+  <!-- <div>your content</div> -->
+  <!-- <div>your content</div> -->
+<!-- </div> -->
+<div class= "container">
+<div class="cards-slick">
+  <% 2.times do %>
     <% @dogs.first(6).each do |dog| %>
-      <div class="col-xs-12 col-md-4 col-sm-8">
-        <div class="card">
-          <%= link_to dog, class: "card-link" do%>
-          <% if dog.photo %>
-            <% photo_url = cl_image_path dog.photo %>
-          <% else %>
-            <% photo_url = "url('https://goo.gl/images/GPguPA')" %>
-          <% end %>
-          <div class="card-photo" style="background-image: url('<%= photo_url %>');">
+    <div class="card">
+      <%= link_to dog_path(dog), class: "card-link" do %>
+        <% if dog.photo %>
+          <% photo_url = cl_image_path dog.photo %>
+        <% else %>
+          <% photo_url = "url('https://goo.gl/images/GPguPA')" %>
+        <% end %>
+        <div class="card-photo" style="background-image: url('<%= photo_url %>');">
 
-          </div>
-          <div class="card-name">
-            <h3><%= dog.name.capitalize %></h3>
-            <p> Price p/h: $<%= dog.price %></p>
-          </div>
-          <div class="card-info">
-            <p><%=h truncate(dog.description, length: 200) %></p>
-          </div>
-          <div class="card-date">
-            <p>Added on: <%= Date.today %></p>
-          </div>
-          <%end%>
         </div>
-      </div>
-    <% end %>
-  </div>
+        <div class="card-name">
+          <div class='dog-name'><%= dog.name.capitalize %></div>
+          <div class='dog-price' style="font-size: 13px; color:#827c7c; margin-top: 5px";>
+            Price p/h: $<%= dog.price %>
+          </div>
+        </div>
+        <div class="card-info">
+          <p><%=h truncate(dog.description, length: 200) %></p>
+        </div>
+        <div class="card-date">
+          <p>Added on: <%= Date.today %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <% end %>
 </div>
+</div>
+
+
+
 <div id="bookingStart"></div>
 <div id="bookingEnd"></div>
-<!-- Above is the dogs cards container -->
+
