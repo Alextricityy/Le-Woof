@@ -30,7 +30,7 @@
     <% end %>
 
     <% if policy(@dog).destroy? %>
-    <%= link_to 'Destroy', @dog, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Remove', @dog, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </div>
 
