@@ -1,5 +1,6 @@
 .dashboard {
-padding-top: 20px;
+padding-top: 80px;
+font-family: Robotica;
 
 }
 
@@ -9,12 +10,12 @@ padding-top: 20px;
 
 .dashboard a {
   text-decoration: none;
-  color: #616668;
+  color: #333333;
 }
 
 .dashboard a:hover {
   text-decoration: none;
-  color: #62D2A2
+   color: #0d0d0d;
 }
 
 .heading {
@@ -22,6 +23,7 @@ padding-top: 20px;
 }
 
 .dashboard .row {
+  padding: 4px;
 
 }
 
@@ -29,6 +31,14 @@ padding-top: 20px;
   padding-bottom: 10px;
 }
 
+.color {
+
+  margin-top: 4%;
+  background-color: #f7f4f4;
+  margin-left: 6%;
+  margin-right: 6%;
+
+}
 .dog-booking {
 
 }

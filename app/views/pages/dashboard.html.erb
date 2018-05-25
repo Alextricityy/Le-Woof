@@ -1,8 +1,8 @@
+<div class="color">
 <div class="container dashboard">
   <div class="row">
     <div class="col-xs-12">
-
-      <h2><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>'s Bookings</h2>
+    <h2><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>'s Bookings</h2>
 
       <% if @bookings.first.nil?%>
       <div class="row ">
@@ -10,6 +10,7 @@
         <h3> You Currently Have No Bookings</h3>
         <h3> <%=link_to "+ Find a Dog", dogs_path %> </h3>
       </div>
+
     </div>
     <div class="row"></div>
     <% else %>
