@@ -1,5 +1,5 @@
 <!-- Below is the home banner -->
-<div class="small-banner" style="background-image :linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "banner.jpg" %>);">
+<!-- <div class="small-banner" style="background-image :linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%#= image_path "banner.jpg" %>);">
   <div>
     <h1 class="banner-h1">
       Le Woof
@@ -9,50 +9,53 @@
       Show Me Dogs
     </a>
   </div>
-</div>
+</div> -->
 <!-- Above is the home banner -->
 
 <!-- Below is the dogs cards container -->
 
 
-<div
-  id="map"
-  style="width: 80%;
-  height: 600px";
-  class="map-woof"
-  data-markers="<%= @markers.to_json %>"
-></div>
 
-<div class="container">
-  <a name = "dogs"></a>
-
+<div class="container-index">
   <div class="row">
-    <% @dogs.each do |dog| %>
-      <div class="col-xs-12 col-md-4 col-sm-8">
-        <div class="card">
-          <%= link_to dog, class: "card-link" do%>
-          <% if dog.photo %>
-            <% photo_url = cl_image_path dog.photo %>
-          <% else %>
-            <% photo_url = "url('https://goo.gl/images/GPguPA')" %>
-          <% end %>
-          <div class="card-photo" style="background-image: url('<%= photo_url %>');">
+    <div class="col-xs-12 col-sm-6">
+      <% @dogs.each do |dog| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <%= link_to dog, class: "card-link" do%>
+            <%# if dog.photo %>
+              <%# photo_url = cl_image_path dog.photo %>
+            <%# else %>
+              <% photo_url = "url('https://goo.gl/images/GPguPA')" %>
+            <%# end %>
+            <div class="card-photo" style="background-image: url('<%= photo_url %>');">
 
+            </div>
+            <div class="card-name">
+              <h3><%= dog.name.capitalize %></h3>
+              <p> Price p/h: $<%= dog.price %></p>
+            </div>
+            <div class="card-info">
+              <p><%=h truncate(dog.description, length: 200) %></p>
+            </div>
+            <div class="card-date">
+              <p>Added on: <%= Date.today %></p>
+            </div>
+            <%end%>
           </div>
-          <div class="card-name">
-            <h3><%= dog.name.capitalize %></h3>
-            <p> Price p/h: $<%= dog.price %></p>
-          </div>
-          <div class="card-info">
-            <p><%=h truncate(dog.description, length: 200) %></p>
-          </div>
-          <div class="card-date">
-            <p>Added on: <%= Date.today %></p>
-          </div>
-          <%end%>
         </div>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="map-woof">
+        <div
+          id="map"
+          style="width: 90%;
+          height: 700px;"
+          data-markers="<%= @markers.to_json %>"
+        ></div>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
 <!-- Above is the dogs cards container -->
