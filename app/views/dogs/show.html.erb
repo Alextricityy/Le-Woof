@@ -44,33 +44,38 @@
     </div>
   </div>
 </div>
+<!-- reviews list -->
+<br>
+<div class="review-list col-md-8 offset-md-4">
+  <% @reviews.last(3).each do |review|%>
+<div class = "col-xs-12">
+  <h4><% review.rating.times do %>
+  <i class='fas fa-star bigger-star'></i>
+  <% end %></h4>
+  <p><%= review.content %></p>
+</div>
+  <% end %>
+</div>
+<div id="bookingStart" data-dates="<%= @already_booked_start %>"></div>
+<div id="bookingEnd" data-dates="<%= @already_booked_end %>"></div>
+<!-- reviews list -->
 <!-- Reviews here -->
 <div class="col-xs-3 offset-md-4">
  <%= simple_form_for [@dog, @review], url: dog_reviews_path(@dog), method: :post do |f| %>
  <h3>Leave a Review for <%= @dog.name %></h3>
 
  <div class = "rating">
-  <i class="far fa-star bigger-star" id = "star1"></i>
-  <i class="far fa-star bigger-star" id = "star2"></i>
-  <i class="far fa-star bigger-star" id = "star3"></i>
-  <i class="far fa-star bigger-star" id = "star4"></i>
-  <i class="far fa-star bigger-star" id = "star5"></i>
+  <i class="far fa-star bigger-star my-star" id = "star1"></i>
+  <i class="far fa-star bigger-star my-star" id = "star2"></i>
+  <i class="far fa-star bigger-star my-star" id = "star3"></i>
+  <i class="far fa-star bigger-star my-star" id = "star4"></i>
+  <i class="far fa-star bigger-star my-star" id = "star5"></i>
 </div>
 <%= f.input :rating, :as => :hidden %>
 <%= f.input :content %>
 <%= f.button :submit, "Review", class: "btn btn-success" %>
 </div>
 <% end %>
-<div>
-  <%= @reviews.each do |review|%>
-  <%= review.rating %>
-  <%= review.content %>
-  <% end %>
-</div>
-
-<div id="bookingStart" data-dates="<%= @already_booked_start %>"></div>
-<div id="bookingEnd" data-dates="<%= @already_booked_end %>"></div>
-
 
 <div
 id="map"
@@ -82,7 +87,7 @@ data-markers="<%= @markers.to_json %>"
 
 <script>
 
-  const stars = Array.from(document.querySelectorAll(".fa-star"));
+  const stars = Array.from(document.querySelectorAll(".my-star"));
   const div = document.querySelector(".rating");
   // console.log(stars)
   stars.forEach((star) => {
