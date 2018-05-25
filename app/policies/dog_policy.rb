@@ -6,11 +6,11 @@ class DogPolicy < ApplicationPolicy
   end
 
   def index?
-    return true
+    true
   end
 
   def create?
-    return true
+    true
   end
 
   def update?
@@ -19,10 +19,6 @@ class DogPolicy < ApplicationPolicy
 
   def destroy?
     user_is_owner?
-  end
-
-  def index?
-    true
   end
 
 
