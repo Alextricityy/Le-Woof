@@ -23,15 +23,15 @@
       <br>
 
 
-      <h3><%= @dog.size.capitalize %> <%= @dog.breed.capitalize %> <% if @dog.gender == "male" %> <i class="fas fa-mars"></i>
+      <h1><%= @dog.size.capitalize %> <%= @dog.breed.capitalize %> <% if @dog.gender == "male" %> <i class="fas fa-mars"></i>
         <% else %>
         <i class="fas fa-venus"></i>
         <%end%>
-      </h3>
+      </h1>
 
 
 
-      <p><%= @dog.description %></p>
+      <p class="description1"><%= @dog.description %></p>
 
 
       <% if policy(@dog).edit? %>
@@ -87,7 +87,7 @@
 
 
     </div>
-    <div class="booking-form col-xs-12 col-sm-6 col-md-4">
+    <div class="booking-form col-xs-12 col-sm-6 col-md-4 pad-top">
       <h1> Book a walk with <%= @dog.name.capitalize %></h1>
       <%= simple_form_for [@dog, @booking] do |f| %>
       <h3>Price per hour: $<%= @dog.price %></h3>
