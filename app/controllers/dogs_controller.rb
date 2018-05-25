@@ -92,7 +92,7 @@ class DogsController < ApplicationController
   @already_booked_start = @dog.bookings.map { |booking| booking.start_time.strftime("%Y-%m-%e ") }
   @already_booked_end = @dog.bookings.map { |booking| booking.end_time.strftime("%Y-%m-%e ") }
   @review = Review.new
-  @reviews = Review.all
+  # @reviews = Review.all
   authorize @dog
 
    @markers =

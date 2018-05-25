@@ -26,7 +26,7 @@
     Find a Doggo
     <%end%>
   </div>
-    
+
   <div class="navbar-wagon-item navbar-wagon-link alex">
     <%= link_to new_dog_path do %>
     <i class="fas fa-home"></i>
@@ -41,15 +41,17 @@
 
   </div>
   <div class="navbar-wagon-item navbar-wagon-link alex">
+    <%= link_to destroy_user_session_path, method: :delete do%>
     <i class="fas fa-sign-out-alt"></i>
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    Logout
+    <% end %>
   </div>
 
 
 
   <%= form_tag dogs_path, :method => 'get' do %>
   <div class="flex-form search-input" id="search-form">
-    <%= text_field_tag :search, params[:search], :class => "form-inline search-input", label: false, id:"search-form", placeholder: "search term"%>
+    <%= text_field_tag :search, params[:search], :class => "form-inline search-input", label: false, id:"search-form", placeholder: "Dog, Breed, Size"%>
     <%= text_field_tag :location, params[:location], :class => "form-inline search-input", label: false, id:"search-form", placeholder: "Location" %>
     <%= submit_tag 'Search', class:"btn btn-outline-success search-button", :name => nil %>
   </div>
