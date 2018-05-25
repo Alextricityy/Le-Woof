@@ -9,19 +9,32 @@
 display: flex;
 // padding-top: 100px;
 align-items: center;
- border-style: solid;
     border-width: 1px;
     justify-content: center;
-    background-color: #bab1a9;
-  height: 600px;
-  margin-top: 120px;
+    background-color: #f4f4f4;
+  height:  70vh;
+  margin-top: 5vh;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 5px;
+
+}
+
+.container-booking a {
+color: #62D2A2;
+}
+
+.container-booking a:hover {
+text-decoration:none;
 }
 
 .text-background {
-  background-color: #bab1a9;
+  background-color: #f4f4f4;
   height: 400px;
   width: 900px;
   padding-top: 50px;
+  padding-right: 5%;
+  padding-left:5%;
   // position: fixed;
 
 
@@ -31,8 +44,8 @@ align-items: center;
 
 .show-text {
 position: relative;
-  text-align: center;
-  font-family: Robotica;
+  text-align: left;
+  font-family: "Roboto";
   padding-left: 25px;
   padding-right: 25px;
 }
@@ -56,4 +69,8 @@ position: relative;
 
 .pending {
   color: #f77c11;
+}
+
+.booking-image {
+  padding-right: 2%;
 }
