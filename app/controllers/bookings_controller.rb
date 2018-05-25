@@ -20,9 +20,15 @@ class BookingsController < ApplicationController
 
   end
 
-
   def update
-
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.status = params[:status]
+    @booking.save
+    respond_to do |format|
+      format.html { redirect_to dashboard_path }
+      format.js  # <-- will render `app/views/reviews/create.js.erb`
+    end
   end
 
   def destroy
