@@ -43,8 +43,8 @@ class DogsController < ApplicationController
     @markers = @good_dogs.map do |dog|
       {
         lat: dog.user.latitude,
-        lng: dog.user.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        lng: dog.user.longitude,
+         infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { dog: dog }) }
       }
     end
 
@@ -98,8 +98,8 @@ class DogsController < ApplicationController
    @markers =
       {
         lat: @dog.user.latitude,
-        lng: @dog.user.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        lng: @dog.user.longitude,
+
       }
 
   end
