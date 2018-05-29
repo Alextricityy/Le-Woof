@@ -22,7 +22,7 @@
 <a name="dogs"></a>
 <div class= "container">
 <div class="cards-slick">
-  <% 2.times do %>
+
     <% @dogs.first(6).each do |dog| %>
     <div class="card">
       <%= link_to dog_path(dog), class: "card-link" do %>
@@ -49,7 +49,7 @@
       <% end %>
     </div>
   <% end %>
-  <% end %>
+
 </div>
 </div>
 <div class="text-center">
@@ -63,27 +63,27 @@
 <div class="container">
   <a name="more"></a>
     <h1 class="text-center hiw-title">How it Works</h1>
-    <hr style="width:250px; margin-bottom:90px; ">
+    <hr style="width:250px; margin-bottom:30px; ">
   <div class="row">
     <div class="col-xs-12 col-sm-3 text-center">
       <%= image_tag "one.png", class: "hiw-image" %>
-      <p class="hiw-card-top"><strong>Create your</strong> <em>free</em> <strong>profile</strong></p>
+      <p class="hiw-card-top"><strong>Create a</strong> <em>free</em> <strong>profile</strong></p>
       <p class="hiw-card-description">Start searching for friendly local dogs or borrowers.</p>
     </div>
     <div class="col-xs-12 col-sm-3 text-center">
       <%= image_tag "two.png", class: "hiw-image" %>
       <p class="hiw-card-top"><strong>Make connections</strong></p>
-      <p class="hiw-card-description">To start messaging safely, all Premium members go through a simple address check.</p>
+      <p class="hiw-card-description">All Premium members are extensively vetted (pun intended).</p>
     </div>
     <div class="col-xs-12 col-sm-3 text-center">
       <%= image_tag "three.png", class: "hiw-image" %>
-      <p class="hiw-card-top"><strong>Meet up</strong></p>
-      <p class="hiw-card-description">Get to know each other face to face and build trust.</p>
+      <p class="hiw-card-top"><strong>Time to Meet</strong></p>
+      <p class="hiw-card-description">Get to know other users and dogs face to face and build trust.</p>
     </div>
     <div class="col-xs-12 col-sm-3 text-center">
       <%= image_tag "four.png", class: "hiw-image" %>
-      <p class="hiw-card-top"><strong>Share the love of dogs</strong></p>
-      <p class="hiw-card-description">Have fun making new friends. Dogs really benefit from more exercise and social interaction.</p>
+      <p class="hiw-card-top"><strong>Share your love of dogs</strong></p>
+      <p class="hiw-card-description">Have fun making new friends. Benefits for you and your dog.</p>
     </div>
   </div>
 

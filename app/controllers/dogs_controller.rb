@@ -3,7 +3,8 @@ class DogsController < ApplicationController
 
   def index
 
-    @dogs = policy_scope(Dog).order(created_at: :desc)
+    @dogs = Dog.all.order(created_at: :desc)
+    authorize @dogs
     if params[:search].present? && params[:location].present?
       search_dogs = Dog.search_everything(params[:search])
       users = User.near(params[:location], 20)
@@ -31,16 +32,15 @@ class DogsController < ApplicationController
       @dogs = Dog.all
     end
 
-    authorize @dogs
 
 
     # @dogs = policy_scope(Dog).order(created_at: :desc)
-    @good_dogs = @dogs.select do |dog|
-      !dog.user.latitude.nil? && !dog.user.longitude.nil?
-    end
+    # @good_dogs = @dogs.select do |dog|
+    #   !dog.user.latitude.nil? && !dog.user.longitude.nil?
+    # end
 
 
-    @markers = @good_dogs.map do |dog|
+    @markers = @dogs.map do |dog|
       {
         lat: dog.user.latitude,
         lng: dog.user.longitude,
